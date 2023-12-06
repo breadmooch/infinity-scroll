@@ -6,8 +6,8 @@ let photosArray=[];
 
 //Helper function to set Attributes on Dom Elements
 function setAttributes(element, attributes) {
-    for(const key in attributes) {
-        element.setAttribute(key, attributes[key]);
+    for (const key in attributes) {
+        element.setAttributes(key, attributes[key]);
     }
 }
 
@@ -23,10 +23,10 @@ function displayPhotos() {
           });
        //Create image for photo
        const img = document.createElement('img');
-         setAttributes(img,{
-            src: photo.url.regular,
-            alt:photo.alt_descrption,
-            title:photo.alt_descrption
+         setAttributes(img, {
+            src: photo.urls.regular,
+            alt: photo.alt_descrption,
+            title: photo.alt_descrption,
          });
        //Put <img> inside <a> , then put both inside imageContainer Element
        item.appendChild(img);
