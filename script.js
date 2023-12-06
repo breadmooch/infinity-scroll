@@ -5,10 +5,10 @@ const loader = document.getElementById('loader');
 let photosArray=[];
 
 //Helper function to set Attributes on Dom Elements
-function setAttributes(element, attributes) {
-    for (const key in attributes) {
-        element.setAttributes(key, attributes[key]);
-    }
+function setAttributes(element,attributes){
+   for(const key in attributes){
+    element.setAttribute(key, attributes[key]);
+   } 
 }
 
 //Create elements for links and photos, Add to DOM
@@ -25,8 +25,8 @@ function displayPhotos() {
        const img = document.createElement('img');
          setAttributes(img, {
             src: photo.urls.regular,
-            alt: photo.alt_descrption,
-            title: photo.alt_descrption,
+            alt: photo.alt_description,
+            title: photo.alt_description,
          });
        //Put <img> inside <a> , then put both inside imageContainer Element
        item.appendChild(img);
