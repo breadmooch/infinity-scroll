@@ -4,19 +4,30 @@ const loader = document.getElementById('loader');
 
 let photosArray=[];
 
+//Helper function to set Attributes on Dom Elements
+function setAttributes(element, attributes) {
+    for(const key in attributes) {
+        element.setAttribute(key, attributes[key]);
+    }
+}
+
 //Create elements for links and photos, Add to DOM
 function displayPhotos() {
     //Run function for each object in photosArray
     photosArray.forEach((photo) =>{
        // Create <a> to link to unsplash
        const item = document.createElement('a');
-       item.setAttribute('href', photo.links.html);
-       item.setAttribute('target', '_blank');
+          setAttributes(item,{
+            href: photo.links.html,
+            target: '_blank',
+          });
        //Create image for photo
        const img = document.createElement('img');
-       img.setAttribute('src', photo.urls.regular);
-       img.setAttribute('alt', photo.alt_descrption);
-       img.setAttribute('title', photo.alt_descrption);
+         setAttributes(img,{
+            src: photo.url.regular,
+            alt:photo.alt_descrption,
+            title:photo.alt_descrption
+         });
        //Put <img> inside <a> , then put both inside imageContainer Element
        item.appendChild(img);
        imageContainer.appendChild(item);
